@@ -25,7 +25,7 @@ app.all('*', function (req, res, next) {
         //    return;
         //}
         console.log(req.url);
-        request({ url: req.url, method: req.method, json: req.body, headers: {'Authorization': req.header('Authorization')} },
+        request({ url: req.url.substring(1), method: req.method, json: req.body, headers: {'Authorization': req.header('Authorization')} },
             function (error, response, body) {
                 if (error) {
                     console.error('error: ' + response.statusCode)
